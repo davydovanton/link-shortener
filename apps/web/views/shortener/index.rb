@@ -3,7 +3,7 @@ module Web::Views::Shortener
     include Web::View
 
     def form
-      form_for link_form, class: '' do
+      form_for link_form, id: 'js-shortener-form' do
         text_field :url
 
         submit 'Short link'
