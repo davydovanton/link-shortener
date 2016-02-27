@@ -1,0 +1,3 @@
+o:0Hanami::Model::Adapters::Memory::Collection	:@identity:id:
+@name:
+links:@records{	i{:urlI"site.org/test:ET:hash_valueI"12345678;T;ii{;I".https://en.wikipedia.org/wiki/LALR_parser;T;I"119bd930;F;ii{;I".https://en.wikipedia.org/wiki/LALR_parser;T;I"a9858ef3;F;ii	{;I".https://en.wikipedia.org/wiki/LALR_parser;T;I"77a6fafb;F;i	:@primary_keyo:<Hanami::Model::Adapters::Memory::Collection::PrimaryKey:@currenti	
