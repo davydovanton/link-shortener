@@ -2,24 +2,19 @@
   'use strict';
 
   $("#js-shortener-form").submit(function(event) {
-
-    /* stop form from submitting normally */
     event.preventDefault();
 
-    /* get some values from elements on the page: */
     var $form = $(this)
-    var term = $form.find('input[name="s"]').val()
+    var link = $form.find('input[name="link[url]"]').val()
     var url = $form.attr('action')
 
-    /* Send the data using post */
-    var posting = $.post(url, {
-      s: term
-    });
-
-    /* Put the results in a div */
-    posting.done(function(data) {
-      var content = $(data).find('#content');
-      $("#result").empty().append(content);
-    });
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: { url: link }, // serializes the form's elements.
+      success: function(data) {
+        alert(data); // show response from the php script.
+      }
+    })
   })
 }()

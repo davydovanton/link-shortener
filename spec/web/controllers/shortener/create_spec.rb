@@ -17,14 +17,14 @@ describe Web::Controllers::Shortener::Create do
     it 'returns json hash with sucess status' do
       response = action.call(params)
       response.first.must_equal 200
-      response.last[:status].must_equal :ok
+      JSON.parse(response.last[0])['status'].must_equal 'ok'
     end
 
     it 'returns json hash with shortener link' do
       SecureRandom.stub :hex, '7406a044' do
         response = action.call(params)
         response.first.must_equal 200
-        response.last[:link].must_equal '7406a044'
+        JSON.parse(response.last[0])['link'].must_equal '7406a044'
       end
     end
 
@@ -42,13 +42,13 @@ describe Web::Controllers::Shortener::Create do
     it 'returns json hash with status' do
       response = action.call(params)
       response.first.must_equal 200
-      response.last[:status].must_equal :error
+      JSON.parse(response.last[0])['status'].must_equal 'error'
     end
 
     it 'returns json hash with shortener link' do
       response = action.call(params)
       response.first.must_equal 200
-      response.last[:link].must_equal nil
+      JSON.parse(response.last[0])['link'].must_equal nil
     end
 
     it 'not create a new post' do

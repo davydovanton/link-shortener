@@ -8,7 +8,7 @@ module Web::Controllers::Shortener
 
     def call(params)
       self.format = :json
-      status 200, responce_hash(params)
+      status 200, JSON.generate(responce_hash(params))
     end
 
   private
