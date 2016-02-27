@@ -14,7 +14,7 @@ describe Web::Controllers::Shortener::Create do
   describe 'with valid params' do
     let(:url) { 'site.com/test' }
 
-    it 'returns json hash with sucess status' do
+    it 'returns json hash with success status' do
       response = action.call(params)
       response.first.must_equal 200
       JSON.parse(response.last[0])['status'].must_equal 'ok'
