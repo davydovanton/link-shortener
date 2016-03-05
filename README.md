@@ -15,7 +15,7 @@ curl -k -H "Content-Type: application/json" -X POST -d '{"url":"test.site"}' htt
 - [ ] Update index page layout.
 - [ ] Add filter logic. This needs for matching links by specific pattern.
 - [ ] Add admin application for manage urls and filter.
-- [ ] Add redirection count metric for each link.
+- [x] Add redirection count metric for each link.
 - [ ] Add some metrics to admin page (most popular sites, links, etc).
 
 ## Contributing
