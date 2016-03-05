@@ -34,9 +34,10 @@ Hanami::Model.configure do
       entity     Link
       repository LinkRepository
 
-      attribute :id,         Integer
-      attribute :url,        String
-      attribute :hash_value, String
+      attribute :id,                Integer
+      attribute :url,               String
+      attribute :hash_value,        String
+      attribute :redirection_count, Integer
     end
   end
 end.load!
