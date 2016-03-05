@@ -3,8 +3,8 @@ class Link
   attributes :url, :hash_value, :redirection_count
 
   def initialize(args = {})
+    self.redirection_count = 0
     super
-    @redirection_count = 0
   end
 
   def generate_hash
@@ -12,6 +12,6 @@ class Link
   end
 
   def increment_redirection_count
-    @redirection_count += 1
+    self.redirection_count += 1
   end
 end

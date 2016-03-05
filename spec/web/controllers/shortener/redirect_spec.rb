@@ -11,6 +11,12 @@ describe Web::Controllers::Shortener::Redirect do
       response = action.call(params)
       response[0].must_equal 302
     end
+
+    it 'increments redirect link value' do
+      old_redirection_count = link.redirection_count
+      action.call(params)
+      (LinkRepository.find(link.id).redirection_count - old_redirection_count).must_equal 1
+    end
   end
 
   describe 'when link exist in db' do
@@ -19,6 +25,12 @@ describe Web::Controllers::Shortener::Redirect do
     it 'returns error status' do
       response = action.call(params)
       response[0].must_equal 404
+    end
+
+    it 'increments redirect link value' do
+      old_redirection_count = link.redirection_count
+      action.call(params)
+      (LinkRepository.find(link.id).redirection_count - old_redirection_count).must_equal 0
     end
   end
 end
