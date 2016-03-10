@@ -18,4 +18,18 @@ describe LinkRepository do
       end
     end
   end
+
+  describe '#top_ten' do
+    before do
+      (1..10).each do |i|
+        LinkRepository.create(Link.new(url: 'site.org/test', hash_value: '12345678', redirection_count: i))
+      end
+    end
+
+    it 'returns 10 links with higest redirection_count value' do
+      LinkRepository.top_ten.first.redirection_count.must_equal 10
+      LinkRepository.top_ten.last.redirection_count.must_equal 1
+      LinkRepository.top_ten.count.must_equal 10
+    end
+  end
 end
