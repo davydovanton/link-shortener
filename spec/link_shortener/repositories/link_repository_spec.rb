@@ -3,7 +3,7 @@ require 'spec_helper'
 describe LinkRepository do
   let(:link){ LinkRepository.create(Link.new(url: 'site.org/test', hash_value: '12345678')) }
 
-  after do
+  after(:each) do
     LinkRepository.clear
   end
 
