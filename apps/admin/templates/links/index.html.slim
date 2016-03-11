@@ -1,0 +1,12 @@
+table.table.table-striped
+  thead
+    tr
+      th #
+      th url
+      th Redirection count
+  tbody
+    - links.each do |link|
+      tr
+        th scope="row" = link.id
+        td = external_link_to(link.url)
+        td = link.redirection_count
