@@ -14,5 +14,14 @@ module Admin::Views::Links
     rescue URI::InvalidURIError
       html.span(link.empty? ? 'empty' : link)
     end
+
+    def delete_link_form(link)
+      form = Form.new(:link, routes.link_path(link.id),
+                      { link: link }, { method: :delete })
+
+      form_for form, class: '' do
+        submit 'Delete', class: 'btn btn-danger'
+      end
+    end
   end
 end

@@ -4,9 +4,11 @@ table.table.table-striped
       th #
       th url
       th Redirection count
+      th
   tbody
     - links.each do |link|
       tr
         th scope="row" = link.id
         td = external_link_to(link.url)
         td = link.redirection_count
+        td = delete_link_form(link)
