@@ -16,7 +16,7 @@ Hanami::Model.configure do
   #    adapter type: :sql, uri: 'postgres://localhost/link_shortener_development'
   #    adapter type: :sql, uri: 'mysql://localhost/link_shortener_development'
   #
-  adapter type: :file_system, uri: 'file:///db/links'
+  adapter type: :sql, uri: ENV['LINK_SHORTENER_DATABASE_URL']
 
   ##
   # Database mapping

@@ -6,4 +6,8 @@ class LinkRepository
       where(hash_value: hash)
     end.first
   end
+
+  def self.top_ten
+    query.desc(:redirection_count).limit(10).to_a
+  end
 end

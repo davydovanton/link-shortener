@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title
+      | #{title} : Admin page
+    == stylesheet 'bootstrap', 'main'
+  body
+    == render partial: 'shared/navbar'
+    .container
+      == yield
+    == javascript 'jquery', 'bootstrap', 'main'
