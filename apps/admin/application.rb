@@ -213,6 +213,10 @@ module Admin
       controller.prepare do
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
+
+        use Rack::Auth::Basic, "Protected Area" do |username, password|
+          username == 'admin' && password == 'password'
+        end
       end
 
       # Configure the code that will yield each time Admin::View is included
