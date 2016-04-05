@@ -2,3 +2,4 @@
 /db/link_shortener_test
 /public/assets*
 /tmp
+.*
